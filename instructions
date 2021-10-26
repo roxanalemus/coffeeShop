@@ -2,7 +2,7 @@ update admin login to barista login
 cashier enters customer's name and order (tall venti grande) which is added to queue
 barista sees order in queue and checks off that they completed it
 click complete to see completed orders
-completed orders should should which barista completed order
+completed orders should show which barista completed order
 barista should have a list of orders that they've completed
 view outstanding orders  
 app says the customer's name out loud when order is complete

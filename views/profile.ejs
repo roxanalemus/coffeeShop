@@ -50,6 +50,8 @@
                 <th scope="col">Customer Name</th>
                 <th scope="col">Size</th>
                 <th scope="col">Status</th>
+                <th scope="col">Barista</th>
+
               </tr>
             </thead>
 
@@ -61,8 +63,9 @@
                   <th scope="row"><%= i + 1 %></th>
                   <td><%= coffeeOrders[i].customerName %></td>
                   <td><%= coffeeOrders[i].size %></td>
-                  <td><span class="completed">Completed</span></td>
-                  <td><span>Not Completed</span></td>
+                  <td><span class="completed"><%= coffeeOrders[i].status %></span></td>
+                  <td><%= coffeeOrders[i].barista %></td>
+                  
               </tr> 
               <% } %>
             </tbody>

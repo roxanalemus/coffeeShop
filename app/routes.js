@@ -13,10 +13,10 @@ module.exports = function (app, passport, db) {
   });
 
   app.post('/order', (req, res) => {
-    db.collection('coffeeOrders').insertOne({ customerName: req.body.customerName,size:req.body.size}, (err, result) => {
+    db.collection('coffeeOrders').insertOne({ customerName: req.body.customerName, size:req.body.size, status:"open"}, (err, result) => {
       if (err) return console.log(err)
-      console.log(`saved to database: ${customerName} ${size}`)
-      res.redirect('order.ejs')
+      console.log(`saved to database: ${req.body.customerName} ${req.body.size}`)
+      res.redirect('/order')
     })
  
   })
@@ -73,22 +73,24 @@ module.exports = function (app, passport, db) {
   // message board routes ===============================================================
 
 
-  app.put('/coffeeOrders', (req, res) => {
-    db.collection('messages')
-    .findOneAndUpdate({customerName: req.body.customerName,size:req.body.size}, {
+  app.put('/coffeeOrders', isLoggedIn, (req, res) => {
+    console.log(req.user)
+    db.collection('coffeeOrders')
+    //target by id when available
+    .findOneAndUpdate({customerName: req.body.customerName, size: req.body.size}, {
       $set: {
-        thumbUp:req.body.thumbUp + 1
+        status: "complete",
+        barista: req.user.local.email
       }
     }, {
-      sort: {_id: -1},
-      upsert: true
+      upsert: false
     }, (err, result) => {
       if (err) return res.send(err)
       res.send(result)
     })
   })
 
-  app.delete('/messages', (req, res) => {
+  app.delete('/messages', isLoggedIn, (req, res) => {
     db.collection('messages').findOneAndDelete({ name: req.body.name, msg: req.body.msg }, (err, result) => {
       if (err) return res.send(500, err)
       res.send('Message deleted!')
