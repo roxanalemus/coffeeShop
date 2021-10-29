@@ -1,0 +1,32 @@
+.choices{
+    background-color: linear-gradient(red, blue);
+    display:flex;
+}
+
+#coffee, #tea, #juice, .submission{
+    border: 1px solid black;
+    width: 200px;
+    height: 400px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    flex:1;
+    margin:3px;
+}
+
+li{
+    list-style: none;
+}
+
+.submission{
+    display:flex;
+}
+
+#itemQuantitySection, #customerNameSection{
+    width:100px;
+    flex:1;
+}
+
+button{
+    width: 100px;
+    height: 100px;
+    margin:2%;
+}

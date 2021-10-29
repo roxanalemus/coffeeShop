@@ -1,32 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+    <link rel='stylesheet' href='style.css'>
+    <link rel='stylesheet' href='pos.css'>
+  </head>
 
-<body>
-    <form action="/order" method="POST">
-        <label>Customer's name:</label>
-        <input type="text" id="bet" name="customerName"  >
+  <body>
+    <h1>Menu:</h1>
 
-        <select name="size" >
-            <option value="Grande">Grande</option>
-            <option value="Medium">Medium</option>
-            <option value="Small">Small</option>
-        </select>
+    <section class='choices'>
+      <div id="coffee">
+        <button class="drink" id="coffeeSmall" value="2.50" data-order="Small coffee"><span>Small coffee</span><br><br>$2.50 </button>
+        <button class="drink" id="coffeeMedium" value="3.50" data-order="Medium coffee"><span>Medium coffee</span><br><br>$3.50</button>
+        <button class="drink" id="coffeeLarge" value="4.50" data-order="Large coffee"><span>Large coffee</span><br><br>$4.50</button>
+      </div>
 
-        <button type="sumbit">Submit</button>
-    </form>
-    
-    <a href="/">Home</a>
+      <div id="tea">
+        <button class="drink" id="teaSmall" value="2.50" data-order="Small tea"><span>Small tea</span><br><br>$2.50</button>
+        <button class="drink" id="teaMedium" value="3.50" data-order="Medium tea"><span>Medium tea</span><br><br>$3.50</button>
+        <button class="drink" id="teaLarge" value="4.50" data-order="Large tea"><span>Large tea</span><br><br>$4.50</button>
+      </div>
 
-    <h2>Orders</h2>
-   
-    <script src="main.js"></script>
-</body>
+      <div id="juice">
+        <button class="drink" id="juiceSmall" value="3.50" data-order="Small juice"><span>Small juice</span><br><br>$3.50</button>
+        <button class="drink" id="juiceMedium" value="4.50" data-order="Medium juice"><span>Medium juice</span><br><br>$4.50</button>
+        <button class="drink" id="juiceLarge" value="5.50" data-order="Large juice"><span>Large juice</span><br><br>$5.50</button>
+      </div>
+      
 
+      <div class='submission'>
+
+        <div id="customerNameSection">
+          <label for="customerName">Customer's name:</label>
+          <input type="text" id="customerName" required/>
+          <ul>
+           <li class="total"></li>
+          </ul>
+        </div> 
+        <button id="submit" action="submit">Submit</button>
+
+      </div>
+      
+
+    </section>
+  
+      
+
+    <script src="order.js"></script>
+
+  
+  </body>
 </html>

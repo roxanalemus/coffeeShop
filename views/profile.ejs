@@ -48,9 +48,10 @@
               <tr>
                 <th scope="col">Order Number</th>
                 <th scope="col">Customer Name</th>
-                <th scope="col">Size</th>
+                <th scope="col">Order</th>
                 <th scope="col">Status</th>
                 <th scope="col">Barista</th>
+                <th scope="col">Served</th>
 
               </tr>
             </thead>
@@ -62,8 +63,14 @@
                 <tr>
                   <th scope="row"><%= i + 1 %></th>
                   <td><%= coffeeOrders[i].customerName %></td>
-                  <td><%= coffeeOrders[i].size %></td>
-                  <td><span class="completed"><%= coffeeOrders[i].status %></span></td>
+                  <td><span><%= coffeeOrders[i].coffee %></span> <br> <span><%= coffeeOrders[i].tea %></span><br><span><%= coffeeOrders[i].juice %></span></td>
+
+                  <% if (coffeeOrders[i].status) { %>
+                    <td><span class="completed">Complete</span></td>
+                <% } else { %>
+                  <td><span class="completed">Pending</span></td>
+                <% } %>
+                 
                   <td><%= coffeeOrders[i].barista %></td>
                   
               </tr> 

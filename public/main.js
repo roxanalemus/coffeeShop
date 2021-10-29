@@ -4,14 +4,22 @@ var completed = document.getElementsByClassName("completed");
 Array.from(completed).forEach(function(element) {
       element.addEventListener('click', function(e){
       let customerName = e.target.parentNode.parentNode.children[1].innerText
-      let size = e.target.parentNode.parentNode.children[2].innerText
+      
+      let coffee = e.target.parentNode.parentNode.children[2].children[0].innerText
+      let  tea= e.target.parentNode.parentNode.children[2].children[2].innerText
+      let juice = e.target.parentNode.parentNode.children[2].children[4].innerText
+
+      console.log(customerName,coffee,tea,juice);
 
         fetch('coffeeOrders', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             'customerName': customerName,
-            'size': size,
+            'coffee': coffee == '' ? null : coffee,
+            'tea': tea == '' ? null : tea,
+            'juice': juice == '' ? null : juice,
+            'total': total
           
           })
         })
@@ -45,5 +53,3 @@ Array.from(completed).forEach(function(element) {
 // });
 
 
-
- 
